@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Tracker</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+    </style>
+</head>
+<body>
+    <div class = 'header'>
+        <h1>Battle Tracker (demo)</h1>
+        <a href="../src/demo.html">Psst... Big things are coming to Battle Tracker...
+            <img src="../img/4788701.png">
+        </a>
+    </div>   
+    <div class= "round-counter">
+        <h1 id = print-round> Round 1</h1>
+        <button id= "next-round">Next round!</button>
+    </div>
+    <br>
+    <div class="mimic-container">
+        <h2 id= "monster-header">Mimic</h2>
+        <img src = "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/211/1000/1000/636252764731637373.jpeg" alt= "mimic" id= "mimic-image">
+        <br> <br>
+        <span class="hp-tracker">
+                <button id= "plus">+</button> 
+                <h2 id= 'total-hp'>HP: 58</h2>
+                <button id= "minus">-</button>
+        </span>
+        <h3 id = 'stats'>
+            STR 17 (+3) | DEX 12 (+1) | CON 15 (+2) | INT 5 (-3) | WIS 13 (+1) | CHA 8 (-1)
+        </h3>
+        <p id = text> <b>AC</b>: 12 <br>
+            <b>Speed</b>: 15 ft. <br>
+            <b>Skills</b>: Stealth +5 <br>
+            <b>Damage Immunities</b>: Acid <br>
+            <b>Condition Immunities</b>: Prone <br>
+            <b>Senses</b>: Darkvision 60 Ft., passive Perception 11 <br>
+            <b>Challenge Rating</b>: 2 (450 XP)
+            <br>
+            <br>
+        <b>Shapechanger</b>: The mimic can use its action to polymorph into an object or back into its true, amorphous form. Its statistics are the same in each form. Any equipment it is wearing or carrying isn 't transformed. It reverts to its true form if it dies. <br>
+        <b>Adhesive (Object Form Only)</b>: The mimic adheres to anything that touches it. A Huge or smaller creature adhered to the mimic is also grappled by it (escape DC 13). Ability checks made to escape this grapple have disadvantage.<br>
+        <b>False Appearance (Object Form Only)</b>: While the mimic remains motionless, it is indistinguishable from an ordinary object. <br>
+        <b>Grappler</b>: The mimic has advantage on attack rolls against any creature grappled by it.
+        <br> <br></p>
+        <h3 id = text>Atttacks</h3>
+        <p id = text>
+        <b>Pseudopod</b>: Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: (1d8 + 3) bludgeoning damage. If the mimic is in object form, the target is subjected to its Adhesive trait<br>
+        <b>Bite</b>: Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: (1d8 + 3) piercing damage plus (1d8)acid damage.</p>
+    </div>
+    <div class= "status-effects">
+        <h2 id = 'text'>Track Status Effects</h2>
+        <p id = 'text'>Is an enemy blinded? Has one of your players been charmed? Do you keep forgetting to make saving throws at the begining on the round? Type the status effect and affected creature here, and when you click the "next round" button, you'll get a reminder of all current status effects. Remember to delete them when the creature saves!</p> <br>
+        <ul id = 'print-status'></ul>
+        <br>
+        <form id = "effect-form">
+            <input
+                type= "textarea"
+                id= "effect-button"
+                placeholder= "Type creature and effect"
+            >
+            <button id= "submit-effect">Add Status Effect</button>
+        </form>
+    </div>
+
+    <!-- <div class= "movement-history">
+        <H2>Track movement</H2>
+        <p>Sometimes you just don't have room for a battle mat. When a player or enemy makes a movement, type a summary here to keep track, old-school text-based adventure style.</p>
+        <form>
+            <input
+                type= "textarea"
+                id= "movement-button"
+                placeholder= "Movement"
+            >
+            <button id= "add-movement">Add to Movement History</button>
+        </form>
+        <ul id = print-movement></ul>
+    </div> -->
+    <script src="./index.js"></script>
+</body>
+</html>
