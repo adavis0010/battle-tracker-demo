@@ -1,4 +1,7 @@
-console.log('hello world')
+const express = require ('express');
+const app = express();
+
+const path = require('path');
 
 //HP Tracker
 
@@ -17,8 +20,6 @@ subtractButton.onclick = function(){
     hp = minusHP;
     document.getElementById('total-hp').innerHTML = 'HP: ' + hp
 }
-
-
 
 //Add and Delete Effects
 
@@ -53,7 +54,7 @@ function deleteEffect(event){
     event.target.parentNode.remove()
 }
 
-// Alert Effect and Round Counter
+//Alert Effect and Round Counter
 
 const nextRound = document.querySelector('#next-round');
 let startRound = 1;
@@ -69,31 +70,16 @@ nextRound.onclick = function(){
     document.getElementById('print-round').innerHTML = "Round " + startRound 
 }
 
+//Server
 
-//Movement Tracker
+app.get('/', function(req,res){
+    res.sendFile( path.join(__dirname, 'index.html'))
+})
 
-// document.querySelector("movement-history"), addEventListener ('submit', movementHistoryHandler)
+app.use(express.static(__dirname));
 
-// const movementButton = document.querySelector('#movement-button')
+const port = process.env.PORT || 5050
 
-// let mvmntList = []
-
-// function movementHistoryHandler(e) {
-//     e.preventDefault();
-
-//     const movementField = document.querySelector ('#print-movement')
-
-//     const movementHistory = document.createElement('li')
-//     movementHistory.setAttribute('id','mvmnt-li')
-//     const movement = document.createElement('span')
-//     movement.setAttribute('id','mvmnt-span')
-
-//     movement.textContent = movementField.value;
-//     movementHistory.textContent = movementField.value;
-//     movementHistory.appendChild(movement)
-
-//     document.querySelector('#print-movement').appendChild(movementHistory)
-
-//     mvmntList.push(movementHistory)
-//     movementField.value = ''
-// }
+app.listen(port, function(){
+    console.log(`Server running on ${port}`)
+})
